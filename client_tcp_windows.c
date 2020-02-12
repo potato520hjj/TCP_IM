@@ -1,3 +1,4 @@
+//test1
 #include <WINSOCK2.H>
 #include <STDIO.H>
 
@@ -9,7 +10,7 @@ int main(int argc, char* argv[])
     WORD sockVersion = MAKEWORD(2,2);
     WSADATA data; 
 	SOCKET sclient;
-	char * sendData = "ÄãºÃ£¬TCP·şÎñ¶Ë£¬ÎÒÊÇ¿Í»§¶Ë!\n";
+	char * sendData = "ä½ å¥½ï¼ŒTCPæœåŠ¡ç«¯ï¼Œæˆ‘æ˜¯å®¢æˆ·ç«¯!\n";
 	char recData[255];
 	int ret;
 	struct sockaddr_in serAddr;
@@ -28,14 +29,14 @@ int main(int argc, char* argv[])
    // sockaddr_in serAddr;
     serAddr.sin_family = AF_INET;
     serAddr.sin_port = htons(1234);
-    serAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");//ÕâÀïÊÇ·şÎñÆ÷IP 
+    serAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");//è¿™é‡Œæ˜¯æœåŠ¡å™¨IP 
     if (connect(sclient, (struct sockaddr *)&serAddr, sizeof(serAddr)) == SOCKET_ERROR)
     {
         printf("connect error !");
         closesocket(sclient);
         return 0;
     }
-    //char * sendData = "ÄãºÃ£¬TCP·şÎñ¶Ë£¬ÎÒÊÇ¿Í»§¶Ë!\n";
+    //char * sendData = "ä½ å¥½ï¼ŒTCPæœåŠ¡ç«¯ï¼Œæˆ‘æ˜¯å®¢æˆ·ç«¯!\n";
     send(sclient, sendData, strlen(sendData), 0);
 
     //char recData[255];
